@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Loading = () => {
+const index = () => {
   return (
     <div>
         Loading
@@ -8,4 +8,4 @@ const Loading = () => {
   )
 }
 
-export default Loading
+export default index
