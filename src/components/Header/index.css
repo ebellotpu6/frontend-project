@@ -1,12 +1,17 @@
 .title {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    margin: 1em;
 }
 
-.title > img {
+.title > a {
     display: flex;
     justify-content: center;
-    width: 20%;
-    z-index: 10;
+    flex-basis: 20%;
+}
+
+.title > a > img {
+    margin: auto;
+    width: 100%;
 }

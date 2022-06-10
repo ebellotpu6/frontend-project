@@ -1,0 +1,13 @@
+.main-container {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+}
+
+.searchResult {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    padding: 20px 100px;
+}
+

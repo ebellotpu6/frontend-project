@@ -9,8 +9,15 @@
 
 .character-card > img {
     width: 100%;
-    max-height: 300px;
     object-fit: cover;
+}
+
+.short-img {
+    max-height: 175px;
+}
+
+.large-img {
+    max-height: 300px;
 }
 
 .character-card > div {

@@ -1,0 +1,26 @@
+.menu-item {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: .5em;
+    cursor: pointer;
+}
+
+.menu-item > img {
+    width: 100%;
+    object-fit: cover;
+    position: relative;
+}
+
+.name {
+    position: absolute;
+    bottom: 1em;
+    display: block;
+    width: calc(100% - 1em);
+    background-color: rgba(0,0,0,.4);
+    text-align: center;
+    font-weight: 600;
+    z-index: 2;
+    text-transform: uppercase;
+    user-select: none;
+}

@@ -3,13 +3,20 @@ import { useParams } from "react-router-dom";
 
 import { CharacterCard, Loading, Header } from '../../components';
 
+import './index.css';
+
 const ObjectList = () => {
   const params = useParams();
+  let type = params.type;
+  if (type === "characters") type = "people";
   const [objectData, setObjectData] = useState(null);
 
   const loadData = async () => {
-    const response = await fetch(`https://swapi.dev/api/${params.type}`);
+    console.log("fetch...");
+    const response = await fetch(`https://swapi.dev/api/${type}`);
+    console.log("json...");
     const json = await response.json();
+    console.log(json);
     setObjectData(json);
   }
 
@@ -30,6 +37,7 @@ const ObjectList = () => {
   }, []);
 
   if(objectData === null) {
+    console.log("loading...");
     return (
       <div>
         <Loading/>
