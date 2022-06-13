@@ -7,20 +7,22 @@
 }
 
 .menu-item > img {
+    position: relative;
     width: 100%;
     object-fit: cover;
-    position: relative;
+    pointer-events: none;
 }
 
 .name {
     position: absolute;
-    bottom: 1em;
+    bottom: 1.5em;
     display: block;
     width: calc(100% - 1em);
     background-color: rgba(0,0,0,.4);
     text-align: center;
+    font-family: Star-Wars;
     font-weight: 600;
+    letter-spacing: .1em;
     z-index: 2;
-    text-transform: uppercase;
     user-select: none;
 }

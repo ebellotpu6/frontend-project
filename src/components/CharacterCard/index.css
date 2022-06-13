@@ -1,15 +1,15 @@
 .character-card {
-    flex-basis: calc(20% - 10px);
-    max-height: 400px;
+    flex-basis: calc(50% - .5em);
     overflow: hidden;
     background-color: lightgray;
-    border-radius: 15px;
-    margin: 5px;
+    border-radius: .75em;
+    margin: .25em;
 }
 
 .character-card > img {
     width: 100%;
     object-fit: cover;
+    pointer-events: none;
 }
 
 .short-img {
@@ -23,11 +23,31 @@
 .character-card > div {
     display: flex;
     justify-content: center;
-    align-items: center;
+    font-family: biko, sans-serif;
+    font-size: .75em;
     font-weight: 500;
-    padding: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-height: 3em;
+    line-height: 1.5em;
+    margin: .25em; 
 }
 
-@media screen and (min-width: 600px) {
-    
+
+@media screen and (min-width: 768px) {
+    .character-card {
+        flex-basis: calc((100%/3) - .5em);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .character-card {
+        flex-basis: calc(20% - .5em);
+    }
+
+    .character-card > div {
+        max-height: 3.6em;
+        line-height: 1.8em;
+        margin: .25em; 
+    }
 }

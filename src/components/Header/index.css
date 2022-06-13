@@ -8,10 +8,22 @@
 .title > a {
     display: flex;
     justify-content: center;
-    flex-basis: 20%;
+    flex-basis: 40%;
 }
 
 .title > a > img {
     margin: auto;
     width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    
+}
+
+@media screen and (min-width: 1024px) {
+    .title > a {
+        display: flex;
+        justify-content: center;
+        flex-basis: 25%;
+    }
 }

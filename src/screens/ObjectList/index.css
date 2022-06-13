@@ -1,13 +1,50 @@
 .main-container {
     position: absolute;
-    z-index: 10;
     width: 100%;
+    padding: 1em 2em;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: .5em 0;
+}
+
+.nav-breadcrumb {
+    display: flex;
+}
+
+.nav-pagination {
+    display: flex;
+    justify-content: end;
+}
+
+.pagination > button {
+    background-color: lightgray;
+    padding: .75em;
+    border: none;    
+    border-radius: .75em;
+}
+
+.pagination > button#nextButton {
+    margin: 0 0 0 1em;
 }
 
 .searchResult {
     display: flex;
     flex-wrap: wrap;
     text-align: center;
-    padding: 20px 100px;
 }
 
+@media screen and (min-width: 768px) {
+    .main-container {
+        padding: 1em 3em;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .main-container {
+        padding: 1em 4em;
+    }
+}

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { useParams } from "react-router-dom";
 
-import { CharacterCard, Loading, Header } from '../../components';
+import { Breadcrumb, CharacterCard, Loading } from '../../components';
 
 import './index.css';
 
@@ -10,6 +10,12 @@ const ObjectList = () => {
   let type = params.type;
   if (type === "characters") type = "people";
   const [objectData, setObjectData] = useState(null);
+  const str = 'flexiple';
+  const [crumbs, setCrumbs] = useState([params.type]);
+
+  const selected = crumb => {
+    console.log(crumb);
+  }
 
   const loadData = async () => {
     console.log("fetch...");
@@ -48,17 +54,22 @@ const ObjectList = () => {
   return (
     <div>
       <div className='main-container'>
-        <div className='pagination'>
-        { objectData.previous ? (
-          <button onClick={prevPage}>Prev Page</button>
-        ) : "" }
-        { objectData.next ? (
-          <button onClick={nextPage}>Next Page</button>
-        ) : "" }
+        <div className='nav-content'>
+          <nav className='nav-breadcrumb'>
+            <Breadcrumb crumbs={ crumbs } selected={ selected } />
+          </nav>
+          <div className='nav-pagination'>
+          { objectData.previous ? (
+            <button onClick={prevPage}>Prev Page</button>
+          ) : "" }
+          { objectData.next ? (
+            <button id='nextButton' onClick={nextPage}>Next Page</button>
+          ) : "" }
+          </div>
         </div>
         <div className='searchResult'>
           {objectData.results.map((character) => (
-            <CharacterCard key={character.name} {...character} type={params.type}></CharacterCard>
+            <CharacterCard key={character.url} {...character} type={params.type}></CharacterCard>
           ))} 
         </div>
       </div>

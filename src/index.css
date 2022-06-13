@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Star-Wars;
+  src: url("./fonts/star-jedi.ttf");
+}
+
 * {
   box-sizing: border-box;
 }

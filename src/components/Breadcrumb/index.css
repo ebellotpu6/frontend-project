@@ -1,0 +1,31 @@
+.breadcrumb {
+    display: flex;
+    justify-content: flex-start;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.breadcrumb-item-home > a, .breadcrumb-item > a {
+    display: flex;
+    font-size: 1.5em;
+    color: #e8be55;
+    font-weight: 500;
+    text-decoration: none;
+    margin-right: .5em;
+}
+
+.breadcrumb-item > a::before, .breadcrumb-item > div.disabled::before {
+    content: "/";
+    color: #e8be55;
+    margin-right: .5em;
+}
+
+.breadcrumb-item > div.disabled {
+    display: flex;
+    font-size: 1.5em;    
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+    margin-right: .5em;
+}
