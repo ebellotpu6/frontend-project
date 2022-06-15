@@ -1,6 +1,9 @@
-export { default as CharacterCard } from "./CharacterCard";
+export { default as ObjectCard } from "./ObjectCard";
+export { default as ObjectCard2 } from "./ObjectCard2";
 export { default as Loading } from "./Loading";
 export { default as Header } from "./Header";
 export { default as Background } from "./Background";
 export { default as MenuItem } from "./MenuItem";
 export { default as Breadcrumb } from "./Breadcrumb";
+export { default as ObjectLink } from "./ObjectLink";
+export { default as ExtraInfo } from "./ExtraInfo";

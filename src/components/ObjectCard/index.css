@@ -1,12 +1,14 @@
-.character-card {
+.object-card {
     flex-basis: calc(50% - .5em);
     overflow: hidden;
     background-color: lightgray;
     border-radius: .75em;
     margin: .25em;
+    text-decoration: none;
+    color: black;
 }
 
-.character-card > img {
+.object-card > img {
     width: 100%;
     object-fit: cover;
     pointer-events: none;
@@ -20,7 +22,7 @@
     max-height: 300px;
 }
 
-.character-card > div {
+.object-card > div {
     display: flex;
     justify-content: center;
     font-family: biko, sans-serif;
@@ -35,17 +37,17 @@
 
 
 @media screen and (min-width: 768px) {
-    .character-card {
+    .object-card {
         flex-basis: calc((100%/3) - .5em);
     }
 }
 
 @media screen and (min-width: 1024px) {
-    .character-card {
+    .object-card {
         flex-basis: calc(20% - .5em);
     }
 
-    .character-card > div {
+    .object-card > div {
         max-height: 3.6em;
         line-height: 1.8em;
         margin: .25em; 

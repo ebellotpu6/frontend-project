@@ -8,7 +8,6 @@ const index = (props) => {
     function isLast(index) {
         return index === props.crumbs.length - 1;
     }
-    console.log(props);
     return (
         <ol className='breadcrumb'>
             <li key={0} className='breadcrumb-item-home'>

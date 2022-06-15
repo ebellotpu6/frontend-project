@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { useParams } from "react-router-dom";
 
-import { Breadcrumb, CharacterCard, Loading } from '../../components';
+import { Breadcrumb, ObjectCard, Loading } from '../../components';
 
 import './index.css';
 
@@ -10,19 +10,11 @@ const ObjectList = () => {
   let type = params.type;
   if (type === "characters") type = "people";
   const [objectData, setObjectData] = useState(null);
-  const str = 'flexiple';
   const [crumbs, setCrumbs] = useState([params.type]);
 
-  const selected = crumb => {
-    console.log(crumb);
-  }
-
   const loadData = async () => {
-    console.log("fetch...");
     const response = await fetch(`https://swapi.dev/api/${type}`);
-    console.log("json...");
     const json = await response.json();
-    console.log(json);
     setObjectData(json);
   }
 
@@ -43,10 +35,16 @@ const ObjectList = () => {
   }, []);
 
   if(objectData === null) {
-    console.log("loading...");
     return (
-      <div>
-        <Loading/>
+      <div className='main-container'>
+        <div className='nav-content'>
+          <nav className='nav-breadcrumb'>
+            <Breadcrumb crumbs={ crumbs } />
+          </nav>
+        </div>
+        <div className='searchResult'>
+          <Loading/>
+        </div>
       </div>
     );
   }
@@ -56,7 +54,7 @@ const ObjectList = () => {
       <div className='main-container'>
         <div className='nav-content'>
           <nav className='nav-breadcrumb'>
-            <Breadcrumb crumbs={ crumbs } selected={ selected } />
+            <Breadcrumb crumbs={ crumbs } />
           </nav>
           <div className='nav-pagination'>
           { objectData.previous ? (
@@ -67,9 +65,9 @@ const ObjectList = () => {
           ) : "" }
           </div>
         </div>
-        <div className='searchResult'>
+        <div className='main-content'>
           {objectData.results.map((character) => (
-            <CharacterCard key={character.url} {...character} type={params.type}></CharacterCard>
+            <ObjectCard key={character.url} {...character} type={params.type}></ObjectCard>
           ))} 
         </div>
       </div>

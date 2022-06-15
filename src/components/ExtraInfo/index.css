@@ -1,0 +1,19 @@
+.extra-info-content {
+    background-color: white;
+    width: calc(33.3% - 1em);
+    margin: 1em .5em 0;
+}
+
+.extra-info-content > .header {
+    font-size: .75em;
+    padding: .25em;
+    border-bottom: .1em solid black;
+}
+
+.extra-info-content > .body {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: .5em;
+    font-size: .5em;
+}

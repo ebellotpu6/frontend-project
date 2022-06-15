@@ -1,10 +1,14 @@
-import React from 'react'
+import React from 'react';
+
+import './index.css';
 
 const index = () => {
   return (
-    <div>
-        Loading
+    <div className="spinner-container">
+      <div className="loading-spinner">
+      </div>
     </div>
+
   )
 }
 
