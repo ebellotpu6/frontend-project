@@ -19,7 +19,7 @@ const index = ({ url, type }) => {
 
   useEffect(() => {
     loadData();
-  }, [objectData]);
+  }, [url]);
 
   if(objectData === null) {
     return (

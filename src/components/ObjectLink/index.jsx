@@ -14,7 +14,7 @@ const index = ({ url, type }) => {
 
     useEffect(() => {
         if(url !== undefined) loadData();
-    }, [objectData]);
+    }, [url]);
 
     if(objectData === null) {
         return (

@@ -6,34 +6,35 @@ import { Breadcrumb, ObjectLink, Loading, ExtraInfo }  from '../../components';
 import './index.css';
 
 const ObjectDetails = () => {
-  const params = useParams();
-  let type = params.type;
+  let { id, type } = useParams();
   if(type === "characters") type = "people";
+  const url = `https://swapi.dev/api/${type}/${id}/`;
   const [objectData, setObjectData] = useState(null);
-  const [crumbs, setCrumbs] = useState([params.type]);
+  //const [crumbs, setCrumbs] = useState([type]);
 
   const loadData = async () => {
-    const response = await fetch(`https://swapi.dev/api/${type}/${params.id}`);
+    const response = await fetch(url);
     const json = await response.json();
     setObjectData(json);
-    setCrumbs([params.type, (params.type === "films") ?  json.title : json.name]);
+    //setCrumbs([type, (type === "films") ?  json.title : json.name]);
+    console.log(json);
   }
 
   useEffect(() => {
     loadData();
-  }, []);
+  }, [id, type]);
 
   const numberWithCommas = (x) => {
     return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
   }
 
-  if(objectData === null) {
+  if(objectData === null || objectData.url !== url) {
     return (
       <div>
         <div className='main-container'>
           <div className='nav-content'>
             <nav className='nav-breadcrumb'>
-              <Breadcrumb crumbs={ crumbs } />
+            {/*<Breadcrumb crumbs={ crumbs } />*/}
             </nav>
           </div>
           <div className='searchResult'>
@@ -48,13 +49,13 @@ const ObjectDetails = () => {
       <div className='main-container'>
         <div className='nav-content'>
           <nav className='nav-breadcrumb'>
-            <Breadcrumb crumbs={ crumbs } />
+            {/*<Breadcrumb crumbs={ crumbs } />*/}
           </nav>
         </div>
         <div className='main-content'>
           <div className='info-container'>
             <div className='img-container '>
-              <img className='image' src={`https://starwars-visualguide.com/assets/img/${params.type}/${params.id}.jpg`} 
+              <img className='image' src={`https://starwars-visualguide.com/assets/img/${type}/${id}.jpg`} 
                   onError={(e) => (e.target.onerror = null, e.target.src = (type === "starships" || type === "vehicles") ? "../../src/assets/default-short-image.jpg" : (type === "planets") ? "../../src/assets/default-middle-image.jpg" : "../../src/assets/default-image.jpg")}/>
             </div>
             <div className='info-content'>
@@ -117,7 +118,7 @@ const ObjectDetails = () => {
                   <div>Consumables: {objectData.consumables}</div>
                 </> : (type === "planets") ? 
                 <>           
-                  <div>Population: {numberWithCommas(objectData.population)}</div>
+                  <div>Population: {numberWithCommas(objectData.residents)}</div>
                   <div>Rotation Period: {objectData.rotation_period} days</div>
                   <div>Orbital Period: {objectData.orbital_period} days</div>
                   <div>Diameter: {numberWithCommas(objectData.diameter)} Km</div>
