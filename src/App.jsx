@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './index.css'
-import { Header, Background } from './components';
+import { Header, Background, Footer } from './components';
 import { Home, ObjectList, ObjectDetails } from './screens';
 
 const App = () => {
@@ -16,6 +16,7 @@ const App = () => {
               <Route path="/:type" element={<ObjectList />} />
               <Route path="/:type/:id" element={<ObjectDetails />} />
           </Routes>
+          <Footer />
         </BrowserRouter>
     </React.StrictMode>
     </>

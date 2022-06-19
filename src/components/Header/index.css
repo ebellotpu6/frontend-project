@@ -24,6 +24,6 @@
     .title > a {
         display: flex;
         justify-content: center;
-        flex-basis: 25%;
+        flex-basis: 20%;
     }
 }

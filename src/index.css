@@ -3,6 +3,11 @@
   src: url("./fonts/star-jedi.ttf");
 }
 
+@font-face {
+  font-family: Biko;
+  src: url("./fonts/Biko_Regular.otf");
+}
+
 * {
   box-sizing: border-box;
 }

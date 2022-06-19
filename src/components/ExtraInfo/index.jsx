@@ -9,10 +9,10 @@ const index = ({ title, type, objects }) => {
     <div className='extra-info-content'>
         <div className='header'>{title}</div>
         <div className='body'>
-          {objects.map(
-              (object) => (
-                  <ObjectCard2 key={object} url={object} type={type}></ObjectCard2>
-              ))
+          {(objects.length === 0) ? "There are no related items for this category" : 
+            objects.map((object) => (
+              <ObjectCard2 key={object} url={object} type={type}></ObjectCard2>
+            ))
           } 
         </div>
     </div>
